@@ -1,10 +1,8 @@
 package com.kotensky.testsk.activity.search.model;
 
 
-import com.kotensky.testsk.rest.data.search.RepoSearch;
-import com.kotensky.testsk.rest.data.user.RepoUser;
-
-import java.util.List;
+import com.kotensky.testsk.activity.search.model.data.RepoSearch;
+import com.kotensky.testsk.activity.user.model.data.RepoUser;
 
 import rx.Observable;
 
@@ -14,6 +12,6 @@ import rx.Observable;
 
 public interface IModelSearch {
 
-    Observable<RepoSearch> getSearchRepoList (String qualifiers);
+    Observable<RepoSearch> getSearchRepoList (String qualifiers, int page);
 
 }

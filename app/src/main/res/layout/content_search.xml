@@ -8,30 +8,15 @@
     tools:context="com.kotensky.testsk.activity.search.view.SearchActivity"
     tools:showIn="@layout/activity_search">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/button"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/search" />
+            android:layout_height="wrap_content" />
 
-    </LinearLayout>
-
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

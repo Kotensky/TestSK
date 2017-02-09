@@ -1,9 +1,7 @@
-package com.kotensky.testsk.rest.data.user;
+package com.kotensky.testsk.activity.user.model.data;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.security.Permissions;
 
 /**
  * Created by Stas on 06.02.2017.

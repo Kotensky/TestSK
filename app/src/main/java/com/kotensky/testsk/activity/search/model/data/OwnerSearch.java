@@ -1,4 +1,4 @@
-package com.kotensky.testsk.rest.data.search;
+package com.kotensky.testsk.activity.search.model.data;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

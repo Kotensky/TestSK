@@ -1,12 +1,13 @@
 package com.kotensky.testsk.rest;
 
-import com.kotensky.testsk.rest.data.search.RepoSearch;
-import com.kotensky.testsk.rest.data.user.RepoUser;
+import com.kotensky.testsk.activity.login.model.data.User;
+import com.kotensky.testsk.activity.search.model.data.RepoSearch;
+import com.kotensky.testsk.activity.user.model.data.RepoUser;
+
 
 import java.util.List;
 
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -18,9 +19,11 @@ public interface IRest {
 
 
     @GET("/search/repositories")
-    Observable<RepoSearch> getSearchRepositories (@Query("q") String qualifiers);
+    Observable<RepoSearch> getSearchRepositories (@Query("q") String qualifiers, @Query("page") int page);
 
-    @GET("/users/{user}/repos")
-    Observable<List<RepoUser>> getUserRepositories(@Path("user") String user);
+    @GET("/user/repos")
+    Observable<List<RepoUser>> getUserRepositories();
 
+    @GET("/user")
+    Observable<User> getUser();
 }

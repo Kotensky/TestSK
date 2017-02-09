@@ -1,15 +1,13 @@
 package com.kotensky.testsk.activity.user.presenter;
 
-import com.kotensky.testsk.activity.search.presenter.IPresenterSearch;
 import com.kotensky.testsk.activity.user.model.IModelUser;
 import com.kotensky.testsk.activity.user.model.ModelUserImpl;
 import com.kotensky.testsk.activity.user.view.IViewUser;
-import com.kotensky.testsk.rest.data.user.RepoUser;
+import com.kotensky.testsk.activity.user.model.data.RepoUser;
 
 import java.util.List;
 
 import rx.Observer;
-import rx.Subscriber;
 import rx.Subscription;
 import rx.subscriptions.Subscriptions;
 
@@ -33,7 +31,7 @@ public class PresenterUser implements IPresenterUser {
         if(!subscription.isUnsubscribed()){
             subscription.unsubscribe();
         }
-        subscription = modelUser.getUserRepoList(viewUser.getName())
+        subscription = modelUser.getUserRepoList(viewUser.getBasic())
                 .subscribe(new Observer<List<RepoUser>>() {
                     @Override
                     public void onCompleted() {
@@ -44,7 +42,6 @@ public class PresenterUser implements IPresenterUser {
                     public void onError(Throwable e) {
                         viewUser.showError(e.getMessage());
                     }
-
                     @Override
                     public void onNext(List<RepoUser> repoUserList) {
                         if (repoUserList!=null && !repoUserList.isEmpty()){

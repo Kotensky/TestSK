@@ -1,7 +1,7 @@
 package com.kotensky.testsk.activity.search.view;
 
-import com.kotensky.testsk.rest.data.search.ItemSearch;
-import com.kotensky.testsk.rest.data.search.RepoSearch;
+import com.kotensky.testsk.activity.search.model.data.ItemSearch;
+import com.kotensky.testsk.activity.search.model.data.RepoSearch;
 
 import java.util.List;
 
@@ -17,6 +17,9 @@ public interface IViewSearch {
 
     void showEmptyList();
 
+    void endRefresh();
+
     String getQualifiers();
 
+    int getPage();
 }

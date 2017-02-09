@@ -6,6 +6,6 @@ package com.kotensky.testsk.activity.search.presenter;
 
 public interface IPresenterSearch {
 
-    void onSearchButtonClick ();
+    void loadData ();
     void onStop ();
 }

@@ -1,13 +1,14 @@
-package com.kotensky.testsk.rest.data.user;
+package com.kotensky.testsk.activity.search.model.data;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
 
 /**
  * Created by Stas on 06.02.2017.
  */
 
-public class ItemUser {
+public class ItemSearch {
 
 
     @SerializedName("id")
@@ -21,7 +22,7 @@ public class ItemUser {
     private String fullName;
     @SerializedName("owner")
     @Expose
-    private OwnerUser owner;
+    private OwnerSearch owner;
     @SerializedName("private")
     @Expose
     private Boolean _private;
@@ -101,11 +102,11 @@ public class ItemUser {
         this.fullName = fullName;
     }
 
-    public OwnerUser getOwner() {
+    public OwnerSearch getOwner() {
         return owner;
     }
 
-    public void setOwner(OwnerUser owner) {
+    public void setOwner(OwnerSearch owner) {
         this.owner = owner;
     }
 
@@ -252,5 +253,4 @@ public class ItemUser {
     public void setScore(Float score) {
         this.score = score;
     }
-
 }

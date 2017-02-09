@@ -3,7 +3,7 @@ package com.kotensky.testsk.activity.search.presenter;
 import com.kotensky.testsk.activity.search.model.IModelSearch;
 import com.kotensky.testsk.activity.search.model.ModelSearchImpl;
 import com.kotensky.testsk.activity.search.view.IViewSearch;
-import com.kotensky.testsk.rest.data.search.RepoSearch;
+import com.kotensky.testsk.activity.search.model.data.RepoSearch;
 
 import rx.Observer;
 import rx.Subscription;
@@ -25,15 +25,15 @@ public class PresenterSearch implements IPresenterSearch {
     }
 
     @Override
-    public void onSearchButtonClick() {
+    public void loadData() {
         if (!subscription.isUnsubscribed()){
             subscription.unsubscribe();
         }
-        subscription = modelSearch.getSearchRepoList(viewSearch.getQualifiers())
+        subscription = modelSearch.getSearchRepoList(viewSearch.getQualifiers(), viewSearch.getPage())
                 .subscribe(new Observer<RepoSearch>() {
                     @Override
                     public void onCompleted() {
-
+                        viewSearch.endRefresh();
                     }
 
                     @Override

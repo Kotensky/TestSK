@@ -1,6 +1,6 @@
 package com.kotensky.testsk.activity.user.view;
 
-import com.kotensky.testsk.rest.data.user.RepoUser;
+import com.kotensky.testsk.activity.user.model.data.RepoUser;
 
 import java.util.List;
 
@@ -16,6 +16,6 @@ public interface IViewUser {
 
     void showEmptyList();
 
-    String getName();
+    String getBasic();
 
 }

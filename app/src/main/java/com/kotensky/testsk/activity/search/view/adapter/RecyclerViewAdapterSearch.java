@@ -1,4 +1,4 @@
-package com.kotensky.testsk.activity.search.view;
+package com.kotensky.testsk.activity.search.view.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kotensky.testsk.R;
-import com.kotensky.testsk.rest.data.search.ItemSearch;
+import com.kotensky.testsk.activity.search.model.data.ItemSearch;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -27,6 +27,12 @@ public class RecyclerViewAdapterSearch extends RecyclerView.Adapter <RecyclerVie
     public void setItemSearchList (List<ItemSearch> itemSearchList){
         this.itemSearchList = itemSearchList;
         notifyDataSetChanged();
+    }
+
+    public void addItemSearchList (List<ItemSearch> itemSearchList){
+        this.itemSearchList.addAll(itemSearchList);
+        notifyDataSetChanged();
+
     }
 
     @Override

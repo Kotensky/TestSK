@@ -1,4 +1,4 @@
-package com.kotensky.testsk.activity.user.view;
+package com.kotensky.testsk.activity.user.view.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.kotensky.testsk.R;
-import com.kotensky.testsk.rest.data.user.RepoUser;
+import com.kotensky.testsk.activity.user.model.data.RepoUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +52,8 @@ public class RecyclerViewAdapterUser extends RecyclerView.Adapter<RecyclerViewAd
 
         public ViewHolderUser(View itemView) {
             super(itemView);
-            name = (TextView) itemView.findViewById(R.id.textViewItemSearchName);
-            description = (TextView) itemView.findViewById(R.id.textViewItemSearchDesc);
+            name = (TextView) itemView.findViewById(R.id.textViewItemUserName);
+            description = (TextView) itemView.findViewById(R.id.textViewItemUserDesc);
 
         }
     }

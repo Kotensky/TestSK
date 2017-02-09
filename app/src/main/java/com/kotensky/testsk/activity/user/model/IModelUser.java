@@ -1,6 +1,6 @@
 package com.kotensky.testsk.activity.user.model;
 
-import com.kotensky.testsk.rest.data.user.RepoUser;
+import com.kotensky.testsk.activity.user.model.data.RepoUser;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ import rx.Observable;
 
 public interface IModelUser {
 
-    Observable<List<RepoUser>> getUserRepoList(String qualifiers);
+    Observable<List<RepoUser>> getUserRepoList(String basic);
 }

@@ -1,8 +1,7 @@
 package com.kotensky.testsk.activity.user.model;
 
 import com.kotensky.testsk.rest.ApiModule;
-import com.kotensky.testsk.rest.IRest;
-import com.kotensky.testsk.rest.data.user.RepoUser;
+import com.kotensky.testsk.activity.user.model.data.RepoUser;
 
 import java.util.List;
 
@@ -16,11 +15,10 @@ import rx.schedulers.Schedulers;
 
 public class ModelUserImpl implements IModelUser {
 
-    IRest iRest = ApiModule.getApiInterface();
 
     @Override
-    public Observable<List<RepoUser>> getUserRepoList(String name) {
-        return iRest.getUserRepositories(name)
+    public Observable<List<RepoUser>> getUserRepoList(String basic) {
+        return ApiModule.getApiInterface(basic).getUserRepositories()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
