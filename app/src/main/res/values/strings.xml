@@ -10,5 +10,10 @@
     <string name="preference_basic_key">basic</string>
     <string name="change_user">Change user</string>
     <string name="response_classic">Something went wrong :/ You are sure that your login and password are correct?</string>
+    <string name="list_empty">List is empty</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="edittx_is_empty_error">Is empty</string>
+    <string name="basic_default">Basic</string>
 
 </resources>

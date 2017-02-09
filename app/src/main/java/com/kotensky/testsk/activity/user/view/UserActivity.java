@@ -18,6 +18,7 @@ import android.view.View;
 import com.kotensky.testsk.R;
 import com.kotensky.testsk.activity.login.view.LoginActivity;
 import com.kotensky.testsk.activity.search.view.SearchActivity;
+import com.kotensky.testsk.activity.search.view.listener.EndlessRecyclerOnScrollListener;
 import com.kotensky.testsk.activity.user.presenter.IPresenterUser;
 import com.kotensky.testsk.activity.user.presenter.PresenterUser;
 import com.kotensky.testsk.activity.user.view.adapter.RecyclerViewAdapterUser;
@@ -33,6 +34,9 @@ import static com.kotensky.testsk.R.id.changeUser;
 
 
 public class UserActivity extends AppCompatActivity implements IViewUser {
+
+    private final static String er401 = "401";
+    private final static String er404 = "404";
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -52,6 +56,8 @@ public class UserActivity extends AppCompatActivity implements IViewUser {
     private SharedPreferences sharedPref;
 
     private String basic;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +79,7 @@ public class UserActivity extends AppCompatActivity implements IViewUser {
         sharedPref = getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         if (sharedPref.contains(getString(R.string.preference_basic_key))) {
-            basic = sharedPref.getString(getString(R.string.preference_basic_key), "Basic");
+            basic = sharedPref.getString(getString(R.string.preference_basic_key), getString(R.string.basic_default));
             presenterUser.onLogin();
         } else {
             Intent intent = new Intent(UserActivity.this, LoginActivity.class);
@@ -125,7 +131,7 @@ public class UserActivity extends AppCompatActivity implements IViewUser {
 
     @Override
     public void showError(String error) {
-        if (error.contains("401") || error.contains("404"))
+        if (error.contains(er401) || error.contains(er404))
             changeUser();
         else
             makeToast(error);
@@ -133,7 +139,7 @@ public class UserActivity extends AppCompatActivity implements IViewUser {
 
     @Override
     public void showEmptyList() {
-        makeToast("List is empty");
+        makeToast(getString(R.string.list_empty));
     }
 
     @Override

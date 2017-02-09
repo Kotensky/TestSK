@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="6dp"
-        android:hint="Username"
+        android:hint="@string/username_hint"
         android:inputType="textPersonName" />
 
     <EditText
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="6dp"
-        android:hint="Password"
+        android:hint="@string/password_hint"
         android:inputType="textPassword" />
 
     <Button

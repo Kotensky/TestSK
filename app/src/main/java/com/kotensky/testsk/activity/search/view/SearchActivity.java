@@ -28,6 +28,7 @@ import butterknife.ButterKnife;
 public class SearchActivity extends AppCompatActivity implements IViewSearch, SearchView.OnQueryTextListener{
 
 
+
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
 
@@ -105,7 +106,7 @@ public class SearchActivity extends AppCompatActivity implements IViewSearch, Se
 
     @Override
     public void showEmptyList() {
-        makeToast("No results for the query '" + qualifiers + "'");
+        makeToast(getString(R.string.list_empty));
     }
 
     @Override

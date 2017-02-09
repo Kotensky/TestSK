@@ -49,9 +49,9 @@ public class LoginActivity extends AppCompatActivity implements IViewLogin {
             @Override
             public void onClick(View v) {
                 if (editTextUsername.getText().toString().trim().length() == 0) {
-                    editTextUsername.setError("Is empty");
+                    editTextUsername.setError(getString(R.string.edittx_is_empty_error));
                 } else if (editTextPass.getText().toString().trim().length() == 0) {
-                    editTextPass.setError("Is empty");
+                    editTextPass.setError(getString(R.string.edittx_is_empty_error));
                 } else {
                     basic = "Basic " + Base64.encodeToString((editTextUsername.getText().toString() + ":" + editTextPass.getText().toString()).getBytes(), Base64.NO_WRAP);
                     presenterLogin.onLoginClick();

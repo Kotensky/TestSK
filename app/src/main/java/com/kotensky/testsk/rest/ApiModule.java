@@ -21,14 +21,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiModule {
 
     private static final String url = "https://api.github.com";
+    private static final String auth = "Authorization";
 
     public static IRest getApiInterface() {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
-        IRest iRest = builder.build().create(IRest.class);
-        return iRest;
+        return builder.build().create(IRest.class);
     }
 
 
@@ -43,7 +43,7 @@ public class ApiModule {
                             public Response intercept(Interceptor.Chain chain) throws IOException {
                                 Request original = chain.request();
                                 Request.Builder requestBuilder = original.newBuilder()
-                                        .header("Authorization", finalBasic)
+                                        .header(auth, finalBasic)
                                         .method(original.method(), original.body());
 
                                 Request request = requestBuilder.build();
@@ -57,7 +57,6 @@ public class ApiModule {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(httpClient);
-        IRest iRest = builder.build().create(IRest.class);
-        return iRest;
+        return builder.build().create(IRest.class);
     }
 }
